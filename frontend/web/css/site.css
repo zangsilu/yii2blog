@@ -118,3 +118,19 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.avatar{
+    padding-bottom: -10px;;
+    box-shadow: rgba(253, 248, 255, 0.2);
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 22px;;
+}
+.avatar img{
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 10px;;
+    border: #ccc solid 0;
+    width: 30px;
+    height: 30px;
+}

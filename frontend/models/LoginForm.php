@@ -1,13 +1,13 @@
 <?php
-namespace common\models;
+namespace frontend\models;
 
+use common\models\User;
 use Yii;
-use yii\base\Model;
 
 /**
  * Login form
  */
-class LoginForm extends Model
+class LoginForm extends User
 {
     public $username;
     public $password;
@@ -27,7 +27,7 @@ class LoginForm extends Model
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
-            ['password', 'validatePassword'],
+//            ['password', 'validatePassword'],
         ];
     }
 
@@ -38,7 +38,7 @@ class LoginForm extends Model
      * @param string $attribute the attribute currently being validated
      * @param array $params the additional name-value pairs given in the rule
      */
-    public function validatePassword($attribute, $params)
+    public function validatePassword($attribute=null, $params=null)
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();

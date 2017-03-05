@@ -1,13 +1,11 @@
 <?php
-$params = array_merge(
-    require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/../../common/config/params-local.php'),
-    require(__DIR__ . '/params.php'),
-    require(__DIR__ . '/params-local.php')
-);
+$params = array_merge(require(__DIR__ . '/../../common/config/params.php'),
+    require(__DIR__ . '/../../common/config/params-local.php'), require(__DIR__ . '/params.php'),
+    require(__DIR__ . '/params-local.php'));
 
 return [
     'id' => 'app-frontend',
+    'language' => 'zh-CN',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -36,14 +34,28 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'suffix' => '',
+            'enableStrictParsing' => false,//不要求网址严格匹配，则不需要输入rules
             'rules' => [
             ],
         ],
-        */
+
+        /*配置中文包*/
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'fileMap' => [
+                        'common'=> 'common.php',
+                    ]
+                ]
+            ]
+        ]
+
     ],
     'params' => $params,
 ];
